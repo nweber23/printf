@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -Wextra -I./includes/
 RM = rm -f
 NAME = libftprintf.a
 
-SRCS = 
+SRCS = srcs/main.c srcs/putnbr.c srcs/putstr.c
 
 OBJS = $(SRCS:.c=.o)
 

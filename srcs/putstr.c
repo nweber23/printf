@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   putstr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nweber <nweber@student.42Heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/05 10:41:17 by nweber            #+#    #+#             */
-/*   Updated: 2025/07/07 16:13:23 by nweber           ###   ########.fr       */
+/*   Created: 2025/07/07 14:59:59 by nweber            #+#    #+#             */
+/*   Updated: 2025/07/07 15:19:07 by nweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_putchar(char c)
 {
-	if (!lst || !f)
-		return ;
-	while (lst)
+	if (write(1, c, 1) == -1)
+		return (-1);
+	return (1);
+}
+
+int	ft_putstr(char *str)
+{
+	int	len;
+
+	while (str[len])
 	{
-		f(lst->content);
-		lst = lst->next;
+		if (ft_putchar(str[len]) == -1)
+			return (-1);
+		len++;
 	}
+	return (len);
 }
