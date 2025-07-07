@@ -33,3 +33,42 @@ static int	format_handler(const char *frmt, int i, va_list args)
 	else
 		return (0);
 }
+
+static int	print_loop(const char *frmt, va_list args)
+{
+	int	i;
+	int	count;
+	int	ret;
+
+	i = 0;
+	count = 0;
+	while (frmt[i])
+	{
+		if (frmt[i] == '%')
+		{
+			ret = format_handler(frmt, ++i, args);
+			if (ret == -1)
+				return (-1);
+			count += ret;
+		}
+		else
+		{
+			if (ft_putchar(frmt[i]) == -1)
+				return (-1);
+			count++;
+		}
+		i++;
+	}
+	return (count);
+}
+
+int	ft_printf(const char *frmt, ...)
+{
+	va_list	args;
+	int		count;
+
+	va_start(args, frmt);
+	count = print_loop(frmt, args);
+	va_end(args);
+	return (count);
+}
