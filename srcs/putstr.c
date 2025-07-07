@@ -6,7 +6,7 @@
 /*   By: nweber <nweber@student.42Heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:59:59 by nweber            #+#    #+#             */
-/*   Updated: 2025/07/07 17:35:04 by nweber           ###   ########.fr       */
+/*   Updated: 2025/07/07 18:14:17 by nweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,14 @@ int	ft_putstr(char *str)
 		len++;
 	}
 	return (len);
+}
+
+static int convert_hex_pointer(unsigned long n, char *charset)
+{
+
+}
+
+int	convert_pointer(void *p)
+{
+
 }
