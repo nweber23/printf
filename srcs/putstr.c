@@ -23,6 +23,7 @@ int	ft_putstr(char *str)
 {
 	int	len;
 
+	len = 0;
 	while (str[len])
 	{
 		if (ft_putchar(str[len]) == -1)
@@ -34,10 +35,36 @@ int	ft_putstr(char *str)
 
 static int convert_hex_pointer(unsigned long n, char *charset)
 {
+	int	len;
 
+	len = 0;
+	if (n >= 16)
+	{
+		len = convert_hex_pointer(n / 16, charset);
+		if (len == -1)
+			return (-1);
+	}
+	if (ft_putchar(charset[n % 16]) == -1)
+		return (-1);
+	return (len + 1);
 }
 
 int	convert_pointer(void *p)
 {
+	unsigned long	addr;
+	int				len;
 
+	len = 0;
+	addr = (unsigned long)p;
+	if (ft_putstr("0x") == -1)
+		return (-1);
+	len += 2;
+	if (addr == 0)
+	{
+		if (ft_putchar('0') == -1)
+			return (-1);
+		return (len + 1);
+	}
+	len += convert_hex_pointer(addr, "0123456789abcdef");
+	return (len);
 }
