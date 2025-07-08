@@ -6,45 +6,60 @@
 /*   By: nweber <nweber@student.42Heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:19:09 by nweber            #+#    #+#             */
-/*   Updated: 2025/07/07 16:58:52 by nweber           ###   ########.fr       */
+/*   Updated: 2025/07/08 11:54:17 by nweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	putnbr(int n)
+static int	putnbr_rec(long nb)
 {
-	int		ret;
 	int		len;
-	long	nb;
+	int		ret;
+	char	c;
 
-	nb = n;
-	if (n < 0)
-	{
-		ret = write(1, '-', 1);
-		if (ret == -1)
-			return (-1);
-		len += ret;
-		nb -= nb;
-	}
+	len = 0;
 	if (nb >= 10)
 	{
-		ret = putnbr(n / 10);
+		ret = putnbr_rec(nb / 10);
 		if (ret == -1)
 			return (-1);
 		len += ret;
 	}
-	ret = write(1, (n % 10) + '0', 1);
+	c = '0' + (nb % 10);
+	ret = write(1, &c, 1);
 	if (ret == -1)
 		return (-1);
-	len += ret;
-	return (len);
+	return (len + ret);
+}
+
+int	putnbr(int n)
+{
+	long	nb;
+	int		len;
+	int		ret;
+
+	nb = n;
+	len = 0;
+	if (nb < 0)
+	{
+		ret = write(1, "-", 1);
+		if (ret == -1)
+			return (-1);
+		len += ret;
+		nb = -nb;
+	}
+	ret = putnbr_rec(nb);
+	if (ret == -1)
+		return (-1);
+	return (len + ret);
 }
 
 int	putnbr_unsigned(unsigned int n)
 {
-	int	ret;
-	int	len;
+	int		ret;
+	int		len;
+	char	c;
 
 	len = 0;
 	if (n >= 10)
@@ -54,7 +69,8 @@ int	putnbr_unsigned(unsigned int n)
 			return (-1);
 		len += ret;
 	}
-	ret = write(1, (n % 10) + '0', 1);
+	c = (n % 10) + '0';
+	ret = write(1, &c, 1);
 	if (ret == -1)
 		return (-1);
 	len += ret;

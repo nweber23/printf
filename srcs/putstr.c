@@ -6,7 +6,7 @@
 /*   By: nweber <nweber@student.42Heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:59:59 by nweber            #+#    #+#             */
-/*   Updated: 2025/07/07 18:14:17 by nweber           ###   ########.fr       */
+/*   Updated: 2025/07/08 11:54:32 by nweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	if (write(1, c, 1) == -1)
+	if (write(1, &c, 1) == -1)
 		return (-1);
 	return (1);
 }
@@ -24,6 +24,8 @@ int	ft_putstr(char *str)
 	int	len;
 
 	len = 0;
+	if (str == NULL)
+		return (ft_putstr("(null)"));
 	while (str[len])
 	{
 		if (ft_putchar(str[len]) == -1)
@@ -33,7 +35,7 @@ int	ft_putstr(char *str)
 	return (len);
 }
 
-static int convert_hex_pointer(unsigned long n, char *charset)
+static int	convert_hex_pointer(unsigned long n, char *charset)
 {
 	int	len;
 

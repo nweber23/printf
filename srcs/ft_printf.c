@@ -6,7 +6,7 @@
 /*   By: nweber <nweber@student.42Heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:37:57 by nweber            #+#    #+#             */
-/*   Updated: 2025/07/07 18:05:01 by nweber           ###   ########.fr       */
+/*   Updated: 2025/07/08 11:44:11 by nweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	format_handler(const char *frmt, int i, va_list args)
 	if (frmt[i] == 'd' || frmt[i] == 'i')
 		return (putnbr(va_arg(args, int)));
 	else if (frmt[i] == 'c')
-		return (ft_putchar(va_arg(args, char)));
+		return (ft_putchar(va_arg(args, int)));
 	else if (frmt[i] == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (frmt[i] == 'u')
