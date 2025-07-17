@@ -6,7 +6,7 @@
 /*   By: nweber <nweber@student.42Heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:21:59 by nweber            #+#    #+#             */
-/*   Updated: 2025/07/08 11:55:30 by nweber           ###   ########.fr       */
+/*   Updated: 2025/07/17 10:00:03 by nweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 
+// Mandatory functions
 int	ft_putchar(char c);
 int	ft_putstr(char *str);
 int	convert_hex(unsigned int n, char *charset);
