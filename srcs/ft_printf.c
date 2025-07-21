@@ -21,7 +21,7 @@ static int	format_handler(const char *frmt, int i, va_list args)
 	else if (frmt[i] == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (frmt[i] == 'u')
-		return (putnbr_unsigned(va_arg(args, int)));
+		return (putnbr_unsigned(va_arg(args, unsigned int)));
 	else if (frmt[i] == 'x')
 		return (convert_hex(va_arg(args, unsigned int), "0123456789abcdef"));
 	else if (frmt[i] == 'X')
