@@ -6,7 +6,7 @@
 /*   By: nweber <nweber@student.42Heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 15:34:52 by nweber            #+#    #+#             */
-/*   Updated: 2025/07/24 13:52:11 by nweber           ###   ########.fr       */
+/*   Updated: 2025/07/24 14:35:42 by nweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@
 // 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
 
 // 	// Edge cases: INT_MIN, INT_MAX, 0
-// 	ret1 = ft_printf("ft_printf: INT_MIN: %d, INT_MAX: %d, \
+// 	ret1 = ft_printf("ft_printf: INT_MIN: %d, INT_MAX: %d,
 // 		zero: %d\n", INT_MIN, INT_MAX, 0);
-// 	ret2 = printf("printf   : INT_MIN: %d, INT_MAX: %d, \
+// 	ret2 = printf("printf   : INT_MIN: %d, INT_MAX: %d,
 // 		zero: %d\n", INT_MIN, INT_MAX, 0);
 // 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
 
