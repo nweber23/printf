@@ -72,9 +72,9 @@
 // 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
 
 // 	// Edge cases: INT_MIN, INT_MAX, 0
-// 	ret1 = ft_printf("ft_printf: INT_MIN: %d, INT_MAX: %d, \
+// 	ret1 = ft_printf("ft_printf: INT_MIN: %d, INT_MAX: %d,
 // 		zero: %d\n", INT_MIN, INT_MAX, 0);
-// 	ret2 = printf("printf   : INT_MIN: %d, INT_MAX: %d, \
+// 	ret2 = printf("printf   : INT_MIN: %d, INT_MAX: %d,
 // 		zero: %d\n", INT_MIN, INT_MAX, 0);
 // 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
 
