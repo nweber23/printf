@@ -43,6 +43,7 @@ char	*get_hash_prefix(t_format *f, unsigned long value);
 // output_bonus.c
 int		output_padded(t_format *f, const char *prefix,
 			const char *digits, int is_numeric);
+int		output_char(t_format *f, char c);
 
 // handlers_bonus.c
 int		handle_int(t_format *f, va_list args);

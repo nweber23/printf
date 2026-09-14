@@ -68,26 +68,29 @@ int	handle_str(t_format *f, va_list args)
 
 int	handle_char(t_format *f, va_list args)
 {
-	char	digits[2];
-	int		ret;
+	char	c;
 
-	digits[0] = (char)va_arg(args, int);
-	digits[1] = '\0';
-	ret = output_padded(f, "", digits, 0);
-	return (ret);
+	c = (char)va_arg(args, int);
+	return (output_char(f, c));
 }
 
 int	handle_ptr(t_format *f, va_list args)
 {
 	void	*p;
 	char	*digits;
+	char	*sign;
+	char	*prefix;
 	int		ret;
 
 	p = va_arg(args, void *);
 	if (!p)
 		return (output_padded(f, "", NULL_PTR, 0));
 	digits = pad_precision(get_digits((unsigned long)p, 16, 0), f);
-	ret = output_padded(f, "0x", digits, 1);
+	sign = get_sign_prefix(f, 0);
+	prefix = ft_strjoin(sign, "0x");
+	ret = output_padded(f, prefix, digits, 1);
 	free(digits);
+	free(sign);
+	free(prefix);
 	return (ret);
 }

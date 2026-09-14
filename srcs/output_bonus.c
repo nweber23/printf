@@ -54,3 +54,15 @@ int	output_padded(t_format *f, const char *prefix,
 		return (write_str(prefix) + write_repeat('0', pad) + write_str(digits));
 	return (write_repeat(' ', pad) + write_str(prefix) + write_str(digits));
 }
+
+int	output_char(t_format *f, char c)
+{
+	int	pad;
+
+	pad = f->width - 1;
+	if (pad < 0)
+		pad = 0;
+	if (f->minus)
+		return (write(1, &c, 1) + write_repeat(' ', pad));
+	return (write_repeat(' ', pad) + write(1, &c, 1));
+}
