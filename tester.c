@@ -6,7 +6,7 @@
 /*   By: nweber <nweber@student.42Heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 15:34:52 by nweber            #+#    #+#             */
-/*   Updated: 2025/07/24 13:52:11 by nweber           ###   ########.fr       */
+/*   Updated: 2026/09/14 12:04:44 by nweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,43 @@
 // 		zero: %d\n", INT_MIN, INT_MAX, 0);
 // 	ret2 = printf("printf   : INT_MIN: %d, INT_MAX: %d, \
 // 		zero: %d\n", INT_MIN, INT_MAX, 0);
+// 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
+
+// 	// ---- bonus: width, flags, precision ----
+
+// 	// width + '-' flag
+// 	ret1 = ft_printf("ft_printf: [%10d][%-10d]\n", n, n);
+// 	ret2 = printf("printf   : [%10d][%-10d]\n", n, n);
+// 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
+
+// 	// '0' flag with sign
+// 	ret1 = ft_printf("ft_printf: [%06d][%+06d]\n", n, -n);
+// 	ret2 = printf("printf   : [%06d][%+06d]\n", n, -n);
+// 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
+
+// 	// ' ' flag
+// 	ret1 = ft_printf("ft_printf: [% d][% d]\n", -n, n);
+// 	ret2 = printf("printf   : [% d][% d]\n", -n, n);
+// 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
+
+// 	// '#' flag on x/X
+// 	ret1 = ft_printf("ft_printf: [%#x][%#X][%#x]\n", u, u, 0);
+// 	ret2 = printf("printf   : [%#x][%#X][%#x]\n", u, u, 0);
+// 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
+
+// 	// precision on d/u/x
+// 	ret1 = ft_printf("ft_printf: [%.8d][%.4u][%.0d]\n", n, u, 0);
+// 	ret2 = printf("printf   : [%.8d][%.4u][%.0d]\n", n, u, 0);
+// 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
+
+// 	// width + precision on s
+// 	ret1 = ft_printf("ft_printf: [%10.4s][%-10.4s]\n", str, str);
+// 	ret2 = printf("printf   : [%10.4s][%-10.4s]\n", str, str);
+// 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
+
+// 	// width on c and p
+// 	ret1 = ft_printf("ft_printf: [%5c][%20p]\n", 'A', ptr);
+// 	ret2 = printf("printf   : [%5c][%20p]\n", 'A', ptr);
 // 	printf("Return values: ft_printf = %d, printf = %d\n\n", ret1, ret2);
 
 // 	return (0);
