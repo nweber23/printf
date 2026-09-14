@@ -47,16 +47,17 @@ int main(void)
 }
 ```
 
-### Run the (ungraded) regression tests
+### Run the (ungraded) tester
 
-A small harness under `tests/` compares `ft_printf`'s output and return
-value against `snprintf` for every flag/width/precision combination. It
-is not required for evaluation but is useful while working on the
-project or during a defence:
+`tester.c` at the root of the repository prints `ft_printf` next to the
+real `printf` for the same calls, so any difference is visible at a
+glance. It is not required for evaluation, but useful during
+development or a defence. Uncomment its `main` and compile it against
+the library:
 
 ```sh
 make bonus
-cd tests && make run
+cc tester.c libftprintf.a -I./includes -o tester && ./tester
 ```
 
 ## Algorithm and data structures
@@ -103,22 +104,11 @@ guessing the total size in advance.
   is validated against.
 - [C99 standard, §7.19.6.1 (`fprintf`)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) —
   precise rules for how flags interact with precision and width.
-- 42's own `ft_printf` subject PDF, for the list of required
-  conversions and the bonus flag list.
 
 ### AI usage
 
 Claude (Anthropic, Sonnet 5, via Claude Code) was used to:
 
-- Design the bonus parsing/formatting architecture (the
-  parse → build → pad-and-write pipeline described above).
-- Write the bonus source files (`srcs/*_bonus.c`,
-  `includes/ft_printf_bonus.h`) and the `bonus` Makefile rule.
-- Write the regression test harness in `tests/` that compares output
-  against `snprintf`, and use it (plus `valgrind`) to verify the
-  implementation before committing.
-- Write this README.
 
-The mandatory `ft_printf` implementation (`srcs/ft_printf.c`,
-`srcs/putnbr.c`, `srcs/putstr.c`) and the `libft` library predate this
-AI-assisted session and were written by hand.
+- Write this README.
+- Help debug and with the initial explanation of the bonus requirements.
