@@ -87,7 +87,7 @@ char	*get_sign_prefix(t_format *f, int negative)
 
 char	*get_hash_prefix(t_format *f, unsigned long value)
 {
-	if (!f->hash || value == 0)
+	if (!f->hash || value == 0 || (f->conv != 'x' && f->conv != 'X'))
 		return (ft_strdup(""));
 	if (f->conv == 'X')
 		return (ft_strdup("0X"));
